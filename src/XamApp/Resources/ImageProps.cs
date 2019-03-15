@@ -31,7 +31,7 @@ namespace XamApp.Resources
                     view.IsVisible = true;
                 }
 
-                string resource = $"XamApp.Resources.Images.{newValue}.jpg";
+                string resource = $"XamApp.Resources.Images.{newValue}";
 
                 if (view is CachedImage)
                     ((CachedImage)view).Source = new EmbeddedResourceImageSource(resource, typeof(ImageProps).Assembly);

@@ -1,17 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<animationNavigationPage:AnimationPage
     x:Class="XamApp.Views.CardsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:res="clr-namespace:XamApp.Resources.Strings"
-    Title="{x:Static res:Strings.MyCards}">
-    <ListView ItemsSource="{Binding Cards}">
+    xmlns:animationNavigationPage="clr-namespace:FormsControls.Base;assembly=FormsControls.Base"
+    xmlns:dto="clr-namespace:XamApp.Dto"
+    xmlns:res="clr-namespace:XamApp.Resources"
+    xmlns:strings="clr-namespace:XamApp.Resources.Strings"
+    xmlns:viewModels="clr-namespace:XamApp.ViewModels"
+    Title="{x:Static strings:Strings.MyCards}"
+    NavigationPage.HasNavigationBar="True">
+    <ListView
+        BackgroundColor="WhiteSmoke"
+        CachingStrategy="RecycleElement"
+        ItemsSource="{Binding Cards}"
+        RowHeight="240"
+        SelectionMode="None"
+        SeparatorVisibility="None">
         <ListView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="dto:CardDto">
                 <ViewCell>
-                    <Label Text="{Binding .}" />
+                    <Frame
+                        Margin="15,0"
+                        Padding="20"
+                        BackgroundColor="White"
+                        CornerRadius="15"
+                        HasShadow="True"
+                        HeightRequest="180"
+                        VerticalOptions="Center">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                HorizontalOptions="Center"
+                                Text="{Binding Title}"
+                                TextColor="Black" />
+                            <ImageButton
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                res:ImageProps.FileName="VerticalDots.png"
+                                x:DataType="viewModels:CardsViewModel"
+                                BackgroundColor="Transparent"
+                                Command="{Binding ShowActionsCommand}"
+                                HeightRequest="35"
+                                HorizontalOptions="End"
+                                WidthRequest="25" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.ColumnSpan="3"
+                                FontSize="Large"
+                                HorizontalOptions="Center"
+                                Text="{Binding CardNumber}"
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                TextColor="Black">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding ExpireYear}" />
+                                        <Span Text="/" />
+                                        <Span Text="{Binding ExpireMonth}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Text="{Binding CVV2}"
+                                TextColor="Black" />
+                        </Grid>
+                    </Frame>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-</ContentPage>
+</animationNavigationPage:AnimationPage>

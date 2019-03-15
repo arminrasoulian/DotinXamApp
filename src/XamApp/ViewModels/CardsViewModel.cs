@@ -12,9 +12,20 @@ namespace XamApp.ViewModels
 {
     public class CardsViewModel : BitViewModelBase
     {
+        public CardsViewModel()
+        {
+            ShowActionsCommand = new BitDelegateCommand<CardDto>(ShowActions);
+        }        
+
         public IList<CardDto> Cards { get; set; }
         public IUserDialogs UserDialogs { get; set; }
 
+        public BitDelegateCommand<CardDto> ShowActionsCommand { get; set; }
+
+        private async Task ShowActions(CardDto card)
+        {
+
+        }
 
         public override async Task OnNavigatedToAsync(INavigationParameters parameters)
         {
@@ -29,19 +40,19 @@ namespace XamApp.ViewModels
                 {
                     new CardDto
                     {
-                        CardNumber = "6621 0612 0567 2547",
-                        CVV2= 392,
+                        CardNumber = "6621   0612   0567   2547",
+                        CVV2= 443,
                         ExpireMonth = 10,
                         ExpireYear = 1399,
-                        Title = "داتین"
+                        Title = "آرمین رسولیان"
                     },
                     new CardDto
                     {
-                        CardNumber = "6621 0612 0567 2547",
+                        CardNumber = "6104   3375   2156   5034",
                         CVV2= 392,
-                        ExpireMonth = 10,
-                        ExpireYear = 1399,
-                        Title = ""
+                        ExpireMonth = 07,
+                        ExpireYear = 1402,
+                        Title = "علی حکمی"
                     }
                 };
             }

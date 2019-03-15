@@ -14,7 +14,7 @@
     </controls:AnimationPage.PageAnimation>
     <Grid>
         <ffImageLoading:CachedImage
-            res:ImageProps.FileName="{x:Static res:ImageNames.LoginBackground}"
+            res:ImageProps.FileName="LoginBackground.jpg"
             Aspect="AspectFill"
             Opacity="0.9" />
         <Frame
@@ -46,7 +46,7 @@
                     Text="{Binding PhoneNumber}"
                     TextColor="#00A5FF" />
                 <Button
-                    BackgroundColor="#00A5FF"                    
+                    BackgroundColor="#00A5FF"
                     Command="{Binding LoginCommand}"
                     CornerRadius="25"
                     HeightRequest="50"

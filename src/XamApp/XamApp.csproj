@@ -12,10 +12,14 @@
 
   <ItemGroup>
     <None Remove="Resources\Images\LoginBackground.jpg" />
+    <None Remove="Resources\Images\VerticalDots.png" />
+    <None Remove="Resources\Images\Vertical_Dots.svg" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\LoginBackground.jpg" />
+    <EmbeddedResource Include="Resources\Images\VerticalDots.png" />
+    <EmbeddedResource Include="Resources\Images\Vertical_Dots.svg" />
   </ItemGroup>
 
   <ItemGroup>
