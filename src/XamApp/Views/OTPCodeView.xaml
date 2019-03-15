@@ -4,34 +4,58 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:FormsControls.Base;assembly=FormsControls.Base"
-    xmlns:resx="clr-namespace:XamApp.Resources.Strings"
-    BackgroundColor="LightGray"
+    xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:res="clr-namespace:XamApp.Resources"
+    xmlns:strings="clr-namespace:XamApp.Resources.Strings"
     NavigationPage.HasNavigationBar="False">
     <controls:AnimationPage.PageAnimation>
         <controls:SlidePageAnimation Subtype="FromLeft" Duration="Long" />
     </controls:AnimationPage.PageAnimation>
-    <Frame
-        Padding="20"
-        BackgroundColor="White"
-        HeightRequest="210"
-        HorizontalOptions="Center"
-        VerticalOptions="Center"
-        WidthRequest="300">
-        <StackLayout
-            HorizontalOptions="Fill"
-            Spacing="20"
-            VerticalOptions="Center">
-            <Label
-                FontSize="Large"
-                HorizontalOptions="Center"
-                Text="{x:Static resx:Strings.OTPCode}" />
-            <Entry
-                HorizontalTextAlignment="Center"
-                MaxLength="4"
-                Placeholder="{x:Static resx:Strings.OTPCode}"
-                ReturnCommand="{Binding VerifyOTPCommand}"
-                Text="{Binding OTPCode}" />
-            <Button Command="{Binding VerifyOTPCommand}" Text="{x:Static resx:Strings.OK}" />
-        </StackLayout>
-    </Frame>
+
+    <Grid>
+        <ffImageLoading:CachedImage
+            res:ImageProps.FileName="{x:Static res:ImageNames.LoginBackground}"
+            Aspect="AspectFill"
+            Opacity="0.9" />
+        <Frame
+            Padding="20"
+            BackgroundColor="White"
+            CornerRadius="20"
+            HasShadow="True"
+            HeightRequest="280"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="300">
+            <StackLayout
+                HorizontalOptions="Fill"
+                Spacing="40"
+                VerticalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="{x:Static strings:Strings.OTPCode}"
+                    TextColor="#00A5FF" />
+                <Entry
+                    BackgroundColor="Transparent"
+                    HorizontalTextAlignment="Center"
+                    MaxLength="4"
+                    Placeholder="{x:Static strings:Strings.OTPCode}"
+                    PlaceholderColor="DimGray"
+                    ReturnCommand="{Binding VerifyOTPCommand}"
+                    Text="{Binding OTPCode}"
+                    TextColor="#00A5FF" />
+                <Button
+                    BackgroundColor="#00A5FF"
+                    Command="{Binding VerifyOTPCommand}"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    Text="{x:Static strings:Strings.OK}"
+                    TextColor="White"
+                    WidthRequest="150" />
+            </StackLayout>
+        </Frame>
+    </Grid>
+
 </controls:AnimationPage>

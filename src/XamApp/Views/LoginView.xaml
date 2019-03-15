@@ -46,8 +46,7 @@
                     Text="{Binding PhoneNumber}"
                     TextColor="#00A5FF" />
                 <Button
-                    BackgroundColor="#00A5FF"
-                    BorderColor="Red"
+                    BackgroundColor="#00A5FF"                    
                     Command="{Binding LoginCommand}"
                     CornerRadius="25"
                     HeightRequest="50"
