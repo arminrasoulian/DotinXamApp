@@ -8,21 +8,22 @@ using XamApp.Resources.Strings;
 
 namespace XamApp.ViewModels
 {
-    public class LoginViewModel : BitViewModelBase
+    public class OTPCodeViewModel : BitViewModelBase
     {
-        public string PhoneNumber { get; set; }
-
-        public BitDelegateCommand LoginCommand { get; set; }
-
-        public LoginViewModel()
+        public OTPCodeViewModel()
         {
-            LoginCommand = new BitDelegateCommand(Login);
+            VerifyOTPCommand = new BitDelegateCommand(VerifyOTP);
         }
+
+        public string OTPCode { get; set; }
+
+        public BitDelegateCommand VerifyOTPCommand { get; set; }
 
         public IUserDialogs UserDialogs { get; set; }
         public IPageDialogService PageDialogService { get; set; }
 
-        public async Task Login()
+
+        private async Task VerifyOTP()
         {
             // Validation
             var isFormValid = await ValidateInputsAsync();
@@ -34,22 +35,20 @@ namespace XamApp.ViewModels
                 // Login implementation ...
                 await Task.Delay(TimeSpan.FromSeconds(3));
             }
-
-            //await NavigationService.NavigateAsync("/Intro");
-            //await NavigationService.NavigateAsync("/Nav/HelloWorld");
-            //await NavigationService.NavigateAsync("/MasterDetail/Nav/HelloWorld");
-            await NavigationService.NavigateAsync("OTP");
+            
+            await NavigationService.NavigateAsync("/Nav/Cards");
         }
 
         private async Task<bool> ValidateInputsAsync()
         {
-            if (string.IsNullOrEmpty(PhoneNumber))
+            if (string.IsNullOrEmpty(OTPCode))
             {
-                await PageDialogService.DisplayAlertAsync(Strings.PhoneNumberIsRequired, Strings.PleaseEnterPhoneNumber, Strings.OK);
+                await PageDialogService.DisplayAlertAsync(Strings.OTPCodeIsRequired, Strings.PleaseEnterOTPCode, Strings.OK);
                 return false;
             }
 
             return true;
         }
+
     }
 }

@@ -123,4 +123,40 @@
   <data name="HelloWorld" xml:space="preserve">
     <value />
   </data>
+  <data name="Login" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MyCards" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OTPCode" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OTPCodeIsRequired" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PhoneNumberIsRequired" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PleaseEnterOTPCode" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PleaseEnterPhoneNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RetrievingData" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value />
+  </data>
 </root>

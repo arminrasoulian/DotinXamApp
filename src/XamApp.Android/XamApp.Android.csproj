@@ -34,6 +34,7 @@
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <LangVersion>7.2</LangVersion>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
@@ -90,6 +91,8 @@
     <AndroidAsset Include="..\XamApp.UWP\Assets\Animations\LottieLogo1.json">
       <Link>Assets\Animations\LottieLogo1.json</Link>
     </AndroidAsset>
+    <AndroidAsset Include="Assets\Fonts\IRANSansMobile%28FaNum%29_Light.ttf" />
+    <AndroidAsset Include="Assets\Fonts\IRANSansMobile%28FaNum%29_Bold.ttf" />
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>

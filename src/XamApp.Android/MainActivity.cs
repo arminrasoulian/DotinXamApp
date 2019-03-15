@@ -40,6 +40,9 @@ namespace XamApp.Droid
             UseDefaultConfiguration(savedInstanceState);
             UserDialogs.Init(this);
             Forms.Init(this, savedInstanceState);
+            FormsMaterial.Init(this, savedInstanceState);
+            FormsControls.Droid.Main.Init(this);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(false);
 
             LoadApplication(new App(new XamAppPlatformInitializer(this)));
         }

@@ -123,4 +123,40 @@
   <data name="HelloWorld" xml:space="preserve">
     <value>سلام دنیا!</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="MyCards" xml:space="preserve">
+    <value>کارت های من</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="OTPCode" xml:space="preserve">
+    <value>کد فعال سازی</value>
+  </data>
+  <data name="OTPCodeIsRequired" xml:space="preserve">
+    <value>وارد کردن کد فعال سازی اجباری است</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>شماره تلفن</value>
+  </data>
+  <data name="PhoneNumberIsRequired" xml:space="preserve">
+    <value>وارد کردن شماره تلفن اجباری است</value>
+  </data>
+  <data name="PleaseEnterOTPCode" xml:space="preserve">
+    <value>لطفا کد فعال سازی را وارد کنید</value>
+  </data>
+  <data name="PleaseEnterPhoneNumber" xml:space="preserve">
+    <value>شماره تلفن را وارد کنید</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>لطفا منتظر بمانید</value>
+  </data>
+  <data name="RetrievingData" xml:space="preserve">
+    <value>در حال دریافت اطلاعات</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
 </root>

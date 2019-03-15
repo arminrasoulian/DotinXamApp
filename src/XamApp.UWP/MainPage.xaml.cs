@@ -15,6 +15,7 @@ namespace XamApp.UWP
             InitializeComponent();
 
             SfListViewRenderer.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
             LoadApplication(new XamApp.App(new XamAppPlatformInitializer()));
         }

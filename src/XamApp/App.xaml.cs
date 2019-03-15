@@ -3,16 +3,16 @@ using Autofac;
 using Bit;
 using Bit.ViewModel.Contracts;
 using Bit.ViewModel.Implementations;
+using FormsControls.Base;
 using Microsoft.Extensions.DependencyInjection;
 using Prism;
 using Prism.Ioc;
-using System;
 using System.Globalization;
 using System.Threading.Tasks;
-using XamApp.Resources;
+using XamApp.Resources.Strings;
 using XamApp.ViewModels;
 using XamApp.Views;
-using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -23,7 +23,7 @@ namespace XamApp
     {
         public static new App Current
         {
-            get { return (App)Application.Current; }
+            get { return (App)Xamarin.Forms.Application.Current; }
         }
 
         public App()
@@ -43,13 +43,15 @@ namespace XamApp
         {
             InitializeComponent();
 
-            Strings.Culture = CultureInfo.CurrentUICulture = new CultureInfo("en");
+            Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
 
-            await NavigationService.NavigateAsync("/Nav/HelloWorld"); // Simple tap counter sample
+            Strings.Culture = CultureInfo.CurrentUICulture = new CultureInfo("fa");
+
+            // await NavigationService.NavigateAsync("/Nav/HelloWorld"); // Simple tap counter sample
 
             // await NavigationService.NavigateAsync("/MasterDetail/Nav/HelloWorld"); // Simple tap counter sample in master detail
             // await NavigationService.NavigateAsync("/Nav/HelloWorld/Intro"); // Popup page
-            // await NavigationService.NavigateAsync("/Nav/Login"); // Simple login form sample
+             await NavigationService.NavigateAsync("/Nav/Login"); // Simple login form sample
             // await NavigationService.NavigateAsync("/Nav/Products"); // List view sample
             // await NavigationService.NavigateAsync("/Nav/PlatformSpecificSamples"); // Platform specific sample
             // await NavigationService.NavigateAsync("/Nav/Animations"); // Animations
@@ -60,7 +62,7 @@ namespace XamApp
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry, ContainerBuilder containerBuilder, IServiceCollection services)
         {
-            containerRegistry.RegisterForNav<NavigationPage>("Nav");
+            containerRegistry.RegisterForNav<AnimationNavigationPage>("Nav");
             containerRegistry.RegisterForNav<XamAppMasterDetailView, XamAppMasterDetailViewModel>("MasterDetail");
             containerRegistry.RegisterForNav<HelloWorldView, HelloWorldViewModel>("HelloWorld");
             containerRegistry.RegisterForNav<HelloWorldMultiLanguageView, HelloWorldViewModel>("HelloWorldMultiLanguage");
@@ -70,6 +72,8 @@ namespace XamApp
             containerRegistry.RegisterForNav<PlatformSpecificSamplesView, PlatformSpecificSamplesViewModel>("PlatformSpecificSamples");
             containerRegistry.RegisterForNav<AnimationsView, AnimationsViewModel>("Animations");
             containerRegistry.RegisterForNav<RestSamplesView, RestSamplesViewModel>("RestSamples");
+            containerRegistry.RegisterForNav<OTPCodeView, OTPCodeViewModel>("OTP");
+            containerRegistry.RegisterForNav<CardsView, CardsViewModel>("Cards");
 
             containerBuilder.Register<IClientAppProfile>(c => new DefaultClientAppProfile
             {

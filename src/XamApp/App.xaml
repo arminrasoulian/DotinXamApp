@@ -10,14 +10,14 @@
         <bitView:OnPlatform
             x:Key="OpenSansRegular"
             x:TypeArguments="x:String"
-            Value="{OnPlatform Android='Fonts/OpenSansRegular.ttf#Open Sans',
+            Value="{OnPlatform Android='Fonts/IRANSansMobile(FaNum)_Light.ttf#IRANSansMobile(FaNum) Light',
                                iOS='OpenSans-Regular',
                                UWP='Assets/Fonts/OpenSansRegular.ttf#Open Sans'}" />
 
         <bitView:OnPlatform
             x:Key="OpenSansBold"
             x:TypeArguments="x:String"
-            Value="{OnPlatform Android='Fonts/OpenSansBold.ttf#Open Sans',
+            Value="{OnPlatform Android='Fonts/IRANSansMobile(FaNum)_Bold.ttf#IRANSansMobile(FaNum)',
                                iOS='OpenSans-Bold',
                                UWP='Assets/Fonts/OpenSansBold.ttf#Open Sans'}" />
 
@@ -27,6 +27,11 @@
             Value="{OnPlatform Android='Fonts/OpenSansItalic.ttf#Open Sans',
                                iOS='OpenSans-Italic',
                                UWP='Assets/Fonts/OpenSansItalic.ttf#Open Sans'}" />
+
+        <Style ApplyToDerivedTypes="True" TargetType="Page">
+            <Setter Property="FlowDirection" Value="RightToLeft" />
+            <Setter Property="Visual" Value="Material" />
+        </Style>
 
         <Style TargetType="StackLayout">
             <Setter Property="Spacing" Value="0" />

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:AnimationPage
+    x:Class="XamApp.Views.OTPCodeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:FormsControls.Base;assembly=FormsControls.Base"
+    xmlns:resx="clr-namespace:XamApp.Resources.Strings"
+    BackgroundColor="LightGray"
+    NavigationPage.HasNavigationBar="False">
+    <controls:AnimationPage.PageAnimation>
+        <controls:SlidePageAnimation Subtype="FromLeft" Duration="Long" />
+    </controls:AnimationPage.PageAnimation>
+    <Frame
+        Padding="20"
+        BackgroundColor="White"
+        HeightRequest="210"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        WidthRequest="300">
+        <StackLayout
+            HorizontalOptions="Fill"
+            Spacing="20"
+            VerticalOptions="Center">
+            <Label
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="{x:Static resx:Strings.OTPCode}" />
+            <Entry
+                HorizontalTextAlignment="Center"
+                MaxLength="4"
+                Placeholder="{x:Static resx:Strings.OTPCode}"
+                ReturnCommand="{Binding VerifyOTPCommand}"
+                Text="{Binding OTPCode}" />
+            <Button Command="{Binding VerifyOTPCommand}" Text="{x:Static resx:Strings.OK}" />
+        </StackLayout>
+    </Frame>
+</controls:AnimationPage>

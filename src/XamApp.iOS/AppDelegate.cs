@@ -31,7 +31,9 @@ namespace XamApp.iOS
 
             UseDefaultConfiguration();
             Forms.Init();
-
+            FormsMaterial.Init();
+            FormsControls.Touch.Main.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             SfListViewRenderer.Init();
 
             LoadApplication(new App(new XamAppPlatformInitializer()));

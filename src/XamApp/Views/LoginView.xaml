@@ -1,19 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<controls:AnimationPage
     x:Class="XamApp.Views.LoginView"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout
-        Margin="5"
-        HorizontalOptions="Center"
-        Orientation="Vertical"
-        VerticalOptions="Start"
-        WidthRequest="320">
-        <Entry Placeholder="User name" Text="{Binding UserName}" />
-        <Entry
-            IsPassword="True"
-            Placeholder="Password"
-            Text="{Binding Password}" />
-        <Button Command="{Binding LoginCommand}" Text="Login" />
-    </StackLayout>
-</ContentPage>
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:FormsControls.Base;assembly=FormsControls.Base"
+    xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:res="clr-namespace:XamApp.Resources"
+    xmlns:resx="clr-namespace:XamApp.Resources.Strings"
+    BackgroundColor="WhiteSmoke"
+    NavigationPage.HasNavigationBar="False">
+    <controls:AnimationPage.PageAnimation>
+        <controls:SlidePageAnimation Subtype="FromBottom" Duration="Long" />
+    </controls:AnimationPage.PageAnimation>
+    <Grid>
+        <ffImageLoading:CachedImage
+            res:ImageProps.FileName="{x:Static res:ImageNames.LoginBackground}"
+            Aspect="AspectFill"
+            Opacity="0.9" />
+        <Frame
+            Padding="20"
+            BackgroundColor="White"
+            CornerRadius="20"
+            HasShadow="True"
+            HeightRequest="280"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="300">
+            <StackLayout
+                HorizontalOptions="Fill"
+                Spacing="40"
+                VerticalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="{x:Static resx:Strings.Login}"
+                    TextColor="#00A5FF" />
+                <Entry
+                    BackgroundColor="Transparent"
+                    HorizontalTextAlignment="Center"
+                    MaxLength="11"
+                    Placeholder="{x:Static resx:Strings.PhoneNumber}"
+                    PlaceholderColor="DimGray"
+                    ReturnCommand="{Binding LoginCommand}"
+                    Text="{Binding PhoneNumber}"
+                    TextColor="#00A5FF" />
+                <Button
+                    BackgroundColor="#00A5FF"
+                    BorderColor="Red"
+                    Command="{Binding LoginCommand}"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    Text="{x:Static resx:Strings.Send}"
+                    TextColor="White"
+                    WidthRequest="150" />
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+</controls:AnimationPage>
