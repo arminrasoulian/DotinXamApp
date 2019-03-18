@@ -10,19 +10,19 @@ using XamApp.Resources.Strings;
 
 namespace XamApp.ViewModels
 {
-    public class CardsViewModel : BitViewModelBase
+    public class CardsViewModel : XamAppViewModelBase
     {
         public CardsViewModel()
         {
-            ShowActionsCommand = new BitDelegateCommand<CardDto>(ShowActions);
+            ShowCardActionsCommand = new BitDelegateCommand<CardDto>(ShowCardActions);
         }        
 
         public IList<CardDto> Cards { get; set; }
         public IUserDialogs UserDialogs { get; set; }
 
-        public BitDelegateCommand<CardDto> ShowActionsCommand { get; set; }
+        public BitDelegateCommand<CardDto> ShowCardActionsCommand { get; set; }
 
-        private async Task ShowActions(CardDto card)
+        private async Task ShowCardActions(CardDto card)
         {
 
         }

@@ -8,7 +8,7 @@ using XamApp.Resources.Strings;
 
 namespace XamApp.ViewModels
 {
-    public class OTPCodeViewModel : BitViewModelBase
+    public class OTPCodeViewModel : XamAppViewModelBase
     {
         public OTPCodeViewModel()
         {

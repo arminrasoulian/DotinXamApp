@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<controls:AnimationPage
+<ContentPage
     x:Class="XamApp.Views.OTPCodeView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -8,10 +8,6 @@
     xmlns:res="clr-namespace:XamApp.Resources"
     xmlns:strings="clr-namespace:XamApp.Resources.Strings"
     NavigationPage.HasNavigationBar="False">
-    <controls:AnimationPage.PageAnimation>
-        <controls:SlidePageAnimation Subtype="FromLeft" Duration="Long" />
-    </controls:AnimationPage.PageAnimation>
-
     <Grid>
         <ffImageLoading:CachedImage
             res:ImageProps.FileName="LoginBackground.jpg"
@@ -58,4 +54,4 @@
         </Frame>
     </Grid>
 
-</controls:AnimationPage>
+</ContentPage>

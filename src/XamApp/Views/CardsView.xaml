@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<animationNavigationPage:AnimationPage
+<ContentPage
     x:Class="XamApp.Views.CardsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -7,12 +7,35 @@
     xmlns:dto="clr-namespace:XamApp.Dto"
     xmlns:res="clr-namespace:XamApp.Resources"
     xmlns:strings="clr-namespace:XamApp.Resources.Strings"
+    xmlns:svgffImageLoading="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:viewModels="clr-namespace:XamApp.ViewModels"
+    x:Name="cardsView"
     Title="{x:Static strings:Strings.MyCards}"
+    FlowDirection="LeftToRight"
     NavigationPage.HasNavigationBar="True">
+    <NavigationPage.TitleView>
+        <StackLayout Margin="0,0,15,0" Orientation="Horizontal">
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static strings:Strings.MyCards}"
+                TextColor="White" />
+            <svgffImageLoading:SvgCachedImage
+                res:ImageProps.FileName="Logout.svg"
+                DownsampleToViewSize="True"
+                WidthRequest="27">
+                <svgffImageLoading:SvgCachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                </svgffImageLoading:SvgCachedImage.GestureRecognizers>
+            </svgffImageLoading:SvgCachedImage>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
     <ListView
         BackgroundColor="WhiteSmoke"
         CachingStrategy="RecycleElement"
+        FlowDirection="RightToLeft"
         ItemsSource="{Binding Cards}"
         RowHeight="240"
         SelectionMode="None"
@@ -52,7 +75,8 @@
                                 res:ImageProps.FileName="VerticalDots.png"
                                 x:DataType="viewModels:CardsViewModel"
                                 BackgroundColor="Transparent"
-                                Command="{Binding ShowActionsCommand}"
+                                Command="{Binding BindingContext.ShowCardActionsCommand, Source={x:Reference cardsView}}"
+                                CommandParameter="{Binding .}"
                                 HeightRequest="35"
                                 HorizontalOptions="End"
                                 WidthRequest="25" />
@@ -87,4 +111,4 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-</animationNavigationPage:AnimationPage>
+</ContentPage>

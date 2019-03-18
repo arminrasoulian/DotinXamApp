@@ -2,6 +2,7 @@
 using Bit.iOS;
 using Bit.ViewModel;
 using Bit.ViewModel.Implementations;
+using FFImageLoading.Svg.Forms;
 using Foundation;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -35,6 +36,7 @@ namespace XamApp.iOS
             FormsControls.Touch.Main.Init();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             SfListViewRenderer.Init();
+            _ = typeof(SvgCachedImage);
 
             LoadApplication(new App(new XamAppPlatformInitializer()));
 

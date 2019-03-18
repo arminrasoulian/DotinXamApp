@@ -6,6 +6,7 @@ using Autofac;
 using Bit.Droid;
 using Bit.ViewModel;
 using Bit.ViewModel.Implementations;
+using FFImageLoading.Svg.Forms;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -43,6 +44,7 @@ namespace XamApp.Droid
             FormsMaterial.Init(this, savedInstanceState);
             FormsControls.Droid.Main.Init(this);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(false);
+            _ = typeof(SvgCachedImage);
 
             LoadApplication(new App(new XamAppPlatformInitializer(this)));
         }

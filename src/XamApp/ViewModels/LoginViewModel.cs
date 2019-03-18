@@ -8,7 +8,7 @@ using XamApp.Resources.Strings;
 
 namespace XamApp.ViewModels
 {
-    public class LoginViewModel : BitViewModelBase
+    public class LoginViewModel : XamAppViewModelBase
     {
         public string PhoneNumber { get; set; }
 

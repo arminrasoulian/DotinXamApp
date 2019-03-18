@@ -1,4 +1,6 @@
 ﻿using Bit.ViewModel;
+using FFImageLoading.Forms;
+using FFImageLoading.Svg.Forms;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -39,7 +41,10 @@ namespace XamApp.UWP
 
                 Xamarin.Forms.Forms.Init(e, new Assembly[]
                 {
-                    typeof(SfListViewRenderer).GetTypeInfo().Assembly
+                    typeof(SfListViewRenderer).GetTypeInfo().Assembly,
+                    typeof(SvgCachedImage).GetTypeInfo().Assembly,
+                    typeof(CachedImage).GetTypeInfo().Assembly,
+
                 }.Union(GetBitRendererAssemblies()));
 
                 Window.Current.Content = rootFrame;

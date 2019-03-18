@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using XamApp.Resources.Strings;
 using XamApp.ViewModels;
 using XamApp.Views;
+using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
 
@@ -62,7 +63,7 @@ namespace XamApp
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry, ContainerBuilder containerBuilder, IServiceCollection services)
         {
-            containerRegistry.RegisterForNav<AnimationNavigationPage>("Nav");
+            containerRegistry.RegisterForNav<NavigationPage>("Nav");
             containerRegistry.RegisterForNav<XamAppMasterDetailView, XamAppMasterDetailViewModel>("MasterDetail");
             containerRegistry.RegisterForNav<HelloWorldView, HelloWorldViewModel>("HelloWorld");
             containerRegistry.RegisterForNav<HelloWorldMultiLanguageView, HelloWorldViewModel>("HelloWorldMultiLanguage");
