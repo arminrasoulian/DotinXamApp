@@ -120,6 +120,12 @@
   <data name="ButtonTappedCount" xml:space="preserve">
     <value>دکمه {0} کلیک شده است</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>بی خیال</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
   <data name="HelloWorld" xml:space="preserve">
     <value>سلام دنیا!</value>
   </data>
@@ -152,6 +158,9 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>لطفا منتظر بمانید</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>حذف</value>
   </data>
   <data name="RetrievingData" xml:space="preserve">
     <value>در حال دریافت اطلاعات</value>

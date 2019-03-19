@@ -72,6 +72,24 @@ namespace XamApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string HelloWorld {
             get {
                 return ResourceManager.GetString("HelloWorld", resourceCulture);
@@ -165,6 +183,15 @@ namespace XamApp.Resources.Strings {
         public static string PleaseWait {
             get {
                 return ResourceManager.GetString("PleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
             }
         }
         

@@ -3,6 +3,7 @@ using Bit.ViewModel;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using XamApp.Dto;
 using XamApp.Resources;
@@ -24,6 +25,20 @@ namespace XamApp.ViewModels
 
         private async Task ShowCardActions(CardDto card)
         {
+            var userSelectedAction = await UserDialogs.ActionSheetAsync(card.Title, Strings.Cancel, "انصراف", CancellationToken.None, Strings.Remove, Strings.Edit);
+
+            if(userSelectedAction == Strings.Cancel)
+            {
+
+            }
+            else if(userSelectedAction == Strings.Remove)
+            {
+
+            }
+            else if(userSelectedAction == Strings.Edit)
+            {
+
+            }
 
         }
 

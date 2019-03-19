@@ -120,6 +120,12 @@
   <data name="ButtonTappedCount" xml:space="preserve">
     <value>Button tapped {0} times!</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
   <data name="HelloWorld" xml:space="preserve">
     <value>Hello world!</value>
   </data>
@@ -152,6 +158,9 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Please Wait</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
   </data>
   <data name="RetrievingData" xml:space="preserve">
     <value>Retrieving Data</value>
