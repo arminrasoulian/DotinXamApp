@@ -25,7 +25,7 @@ namespace XamApp.ViewModels
 
         private async Task ShowCardActions(CardDto card)
         {
-            var userSelectedAction = await UserDialogs.ActionSheetAsync(card.Title, Strings.Cancel, "انصراف", CancellationToken.None, Strings.Remove, Strings.Edit);
+            var userSelectedAction = await UserDialogs.ActionSheetAsync(card.Title, Strings.Cancel, null, CancellationToken.None, Strings.Remove, Strings.Edit);
 
             if(userSelectedAction == Strings.Cancel)
             {
