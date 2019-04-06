@@ -3,11 +3,14 @@ using Autofac;
 using Bit;
 using Bit.ViewModel.Contracts;
 using Bit.ViewModel.Implementations;
-using FormsControls.Base;
+using FFImageLoading;
 using Microsoft.Extensions.DependencyInjection;
 using Prism;
 using Prism.Ioc;
+using Refit;
+using System;
 using System.Globalization;
+using System.Net.Http;
 using System.Threading.Tasks;
 using XamApp.Resources.Strings;
 using XamApp.ViewModels;
@@ -22,10 +25,7 @@ namespace XamApp
 {
     public partial class App : BitApplication
     {
-        public static new App Current
-        {
-            get { return (App)Xamarin.Forms.Application.Current; }
-        }
+        public static new App Current => (App)Xamarin.Forms.Application.Current;
 
         public App()
             : this(null)
@@ -48,15 +48,16 @@ namespace XamApp
 
             Strings.Culture = CultureInfo.CurrentUICulture = new CultureInfo("fa");
 
-            // await NavigationService.NavigateAsync("/Nav/HelloWorld"); // Simple tap counter sample
+            bool isLoggedIn = await Container.Resolve<ISecurityService>().IsLoggedInAsync();
 
-            // await NavigationService.NavigateAsync("/MasterDetail/Nav/HelloWorld"); // Simple tap counter sample in master detail
-            // await NavigationService.NavigateAsync("/Nav/HelloWorld/Intro"); // Popup page
-             await NavigationService.NavigateAsync("/Nav/Login"); // Simple login form sample
-            // await NavigationService.NavigateAsync("/Nav/Products"); // List view sample
-            // await NavigationService.NavigateAsync("/Nav/PlatformSpecificSamples"); // Platform specific sample
-            // await NavigationService.NavigateAsync("/Nav/Animations"); // Animations
-            // await NavigationService.NavigateAsync("/Nav/RestSamples"); // rest api call sample
+            if (isLoggedIn)
+            {
+                await NavigationService.NavigateAsync("/Master/Nav/ToDoItems");
+            }
+            else
+            {
+                await NavigationService.NavigateAsync("/Nav/Login");
+            }
 
             await base.OnInitializedAsync();
         }
@@ -78,7 +79,9 @@ namespace XamApp
 
             containerBuilder.Register<IClientAppProfile>(c => new DefaultClientAppProfile
             {
-                AppName = "XamApp",
+                HostUri = new Uri("https://example.ir"),
+                TokenEndpoint = "",
+                AppName = "XamApp"
             }).SingleInstance();
 
             containerBuilder.RegisterRequiredServices();
@@ -86,6 +89,15 @@ namespace XamApp
             containerBuilder.RegisterIdentityClient();
 
             containerBuilder.RegisterInstance(UserDialogs.Instance);
+
+            //Register custom HttpClient for FFImageLoading to receive token
+            //ImageService.Instance.Initialize(new FFImageLoading.Config.Configuration
+            //{
+            //    HttpClient = Container.Resolve<HttpClient>()
+            //});
+
+            containerBuilder.Register(c => RestService.For<INetworkService>(c.Resolve<HttpClient>()));
+
 
             base.RegisterTypes(containerRegistry, containerBuilder, services);
         }

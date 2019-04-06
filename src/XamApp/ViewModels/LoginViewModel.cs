@@ -34,16 +34,13 @@ namespace XamApp.ViewModels
                 // Login implementation ...
                 await Task.Delay(TimeSpan.FromSeconds(3));
             }
-
-            //await NavigationService.NavigateAsync("/Intro");
-            //await NavigationService.NavigateAsync("/Nav/HelloWorld");
-            //await NavigationService.NavigateAsync("/MasterDetail/Nav/HelloWorld");
+           
             await NavigationService.NavigateAsync("OTP");
         }
 
         private async Task<bool> ValidateInputsAsync()
         {
-            if (string.IsNullOrEmpty(PhoneNumber))
+            if (string.IsNullOrEmpty(PhoneNumber))  
             {
                 await PageDialogService.DisplayAlertAsync(Strings.PhoneNumberIsRequired, Strings.PleaseEnterPhoneNumber, Strings.OK);
                 return false;

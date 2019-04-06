@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using XamApp.Dto;
-using XamApp.Resources;
 using XamApp.Resources.Strings;
 
 namespace XamApp.ViewModels

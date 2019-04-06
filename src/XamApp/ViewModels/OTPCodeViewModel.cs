@@ -32,7 +32,10 @@ namespace XamApp.ViewModels
 
             using (UserDialogs.Loading(Strings.PleaseWait, maskType: MaskType.Gradient))
             {
-                // Login implementation ...
+                // Send WebRequest To Verify OTP Code ...
+
+                // Get OAuth token and save it to SecureStorage
+
                 await Task.Delay(TimeSpan.FromSeconds(3));
             }
             
